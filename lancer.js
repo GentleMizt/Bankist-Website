@@ -101,3 +101,14 @@ logo.setAttribute('company', 'Bankist')
 console.log(logo.src); // This returns the absolute URL path of the image
 console.log(logo.getAttribute('src')); // This returns the relative URL of the image.
 
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+
+// DATA ATTRIBUTES //
+// - These are special kind of attributes that starts with the word data.
+// - these kind of attributes are stored in the dataset objects
+// - to access such kind of attributes, this is how it's done
+
+console.log(logo.dataset.versionNumber);
