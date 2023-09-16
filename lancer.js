@@ -45,7 +45,7 @@ console.log(allButtons);
 
 console.log(document.getElementsByClassName('btn'));
 
-// CREATING AND INSERTING ELEMENTS //
+// CREATING AND INSERTING ELEMENTS (PROGRAMMATICALY)//
 
 // .insertAdjacentHTML
 
@@ -55,4 +55,16 @@ message.classList.add('cookie-message');
 message.innerHTML =
   'We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>';
 
-header.prepend(message);
+header.append(message);
+
+// If we wanted to insert multiple copies of the same element. what we do is to copy the original copy.
+// header.append(message.cloneNode(true));  // Like this
+
+// header.before(message);
+// header.after(message);
+
+// DELETING ELEMENTS //
+document.querySelector('.btn--close-cookie').addEventListener('click', () => {
+  message.remove(); // The much newer method of deleting elements
+    // message.parentElement.removeChild(message); // The previous way of deleting elements
+});
