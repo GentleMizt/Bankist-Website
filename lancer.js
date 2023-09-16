@@ -94,9 +94,9 @@ console.log(logo.src);
 logo.alt = 'Beautiful minimalist logo';
 
 // non standard
-console.log(logo.designer);  // the attribute would not get created as a property because it's not a standard attribute
+console.log(logo.designer); // the attribute would not get created as a property because it's not a standard attribute
 console.log(logo.getAttribute('designer'));
-logo.setAttribute('company', 'Bankist')
+logo.setAttribute('company', 'Bankist');
 
 console.log(logo.src); // This returns the absolute URL path of the image
 console.log(logo.getAttribute('src')); // This returns the relative URL of the image.
@@ -105,10 +105,22 @@ const link = document.querySelector('.nav__link--btn');
 console.log(link.href);
 console.log(link.getAttribute('href'));
 
-
 // DATA ATTRIBUTES //
 // - These are special kind of attributes that starts with the word data.
 // - these kind of attributes are stored in the dataset objects
 // - to access such kind of attributes, this is how it's done
 
 console.log(logo.dataset.versionNumber);
+
+// CLASSES //
+// - These are basically the 4 main class methods you need to know of.
+
+logo.classList.add('cl');
+logo.classList.remove('cl');
+logo.classList.toggle('cl');
+logo.classList.contains('cl');
+
+// NB: The reason why it is bad to use this method of adding class names is because 
+// - It overides all previously set class names on that particular element
+// - It only allows you to have one class on that particular element as well
+// logo.className = 'lancer';
