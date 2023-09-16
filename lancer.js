@@ -51,10 +51,20 @@ btnScrollTo.addEventListener('click', e => {
   );
 
   // Scrolling
-  window.scrollTo(
-    s1coords.left + window.pageXOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
-    s1coords.top + window.pageYOffset   // Calculating the absolute position of the element relative to the document i.e the entire page.
-  );
+  //   window.scrollTo(
+  //     s1coords.left + window.pageXOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
+  //     s1coords.top + window.pageYOffset   // Calculating the absolute position of the element relative to the document i.e the entire page.
+  //   );
 
-  window.s
+  // Old Method of implementing the scroll functionality
+//   window.scrollTo({
+//     left: s1coords.left + window.pageXOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
+//     top: s1coords.top + window.pageYOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
+//     behavior: 'smooth',
+//   });
+
+  // Newer method of implementing it.
+  section1.scrollIntoView({
+    behavior: 'smooth',
+  });
 });
