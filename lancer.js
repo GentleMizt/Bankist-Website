@@ -82,4 +82,22 @@ message.style.height =
 
 // document.documentElement.style.setProperty('--color-primary', 'orangered');  // changing the value of custom css properties.
 
+// ATTRIBUTES //
+const logo = document.querySelector('.nav__logo');
+
+// standard attributes
+console.log(logo.alt);
+console.log(logo.className);
+console.log(logo.src);
+// NB: The above would have the attributes created as properties on the LOGO OBJECT in the DOM because it is a standard attribute of the image element.
+
+logo.alt = 'Beautiful minimalist logo';
+
+// non standard
+console.log(logo.designer);  // the attribute would not get created as a property because it's not a standard attribute
+console.log(logo.getAttribute('designer'));
+logo.setAttribute('company', 'Bankist')
+
+console.log(logo.src); // This returns the absolute URL path of the image
+console.log(logo.getAttribute('src')); // This returns the relative URL of the image.
 
