@@ -57,11 +57,11 @@ btnScrollTo.addEventListener('click', e => {
   //   );
 
   // Old Method of implementing the scroll functionality
-//   window.scrollTo({
-//     left: s1coords.left + window.pageXOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
-//     top: s1coords.top + window.pageYOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
-//     behavior: 'smooth',
-//   });
+  //   window.scrollTo({
+  //     left: s1coords.left + window.pageXOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
+  //     top: s1coords.top + window.pageYOffset, // Calculating the absolute position of the element relative to the document i.e the entire page.
+  //     behavior: 'smooth',
+  //   });
 
   // Newer method of implementing it.
   section1.scrollIntoView({
@@ -69,11 +69,25 @@ btnScrollTo.addEventListener('click', e => {
   });
 });
 
-
 /// EVENTS AND EVENT HANDLERS ///
 
 const h1 = document.querySelector('h1');
+const alertH1 = e => {
+  alert('addEventListener: Great! You are reading the heading :D');
+};
 
-h1.addEventListener('mouseenter', (e)=>{
-  alert('addEventListener: Great! You are reading the heading :D')
-})
+// FIRST WAY OF HANDLING AN EVENTS
+h1.addEventListener('mouseenter', alertH1);  
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+// SECOND WAY OF HANDLING AN EVENTS
+// h1.onmouseenter = e => {
+//   alert('onmouseenter: Great! You are reading the heading :D');
+// };
+
+
+// THIRD WAY OF HANDLING EVENTS
+// - This method actually involves you handling the event in the HTML markup by passing it as an attribute to the HTML element.
+// - This method was used in the early days and should not be used in mordern day JavaScript Coding.
+//  <h1 onclick="alert('HTML alert')"></h1> 
