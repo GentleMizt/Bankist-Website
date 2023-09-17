@@ -8,8 +8,9 @@ const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
-// FUNCTIONS //
+///////////////////////////// FUNCTIONS /////////////////////////////
 
+// MODAL WINDOW //
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -32,6 +33,7 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
+// BUTTON SCROLLING //
 btnScrollTo.addEventListener('click', e => {
   //   const s1coords = section1.getBoundingClientRect();
   //   console.log(s1coords);
@@ -67,3 +69,18 @@ btnScrollTo.addEventListener('click', e => {
 });
 
 // PAGE NAVIGATION
+
+document.querySelectorAll('.nav__link').forEach((link, i) => {
+  link.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log(`LINK-${i + 1}`);
+
+    // Implementing the smooth scrolling
+    const id = this.getAttribute('href');
+    console.log(id);
+
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  });
+});
