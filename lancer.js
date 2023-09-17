@@ -98,14 +98,20 @@ const randomInt = (min, max) =>
 
 const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
-document.querySelector('.nav__link').addEventListener('click', e => {
+const featureLink = document.querySelector('.nav__link');
+const navLinks = document.querySelector('.nav__links');
+
+featureLink.addEventListener('click', function(e){
+    this.style.backgroundColor = randomColor();
+    console.log('LINK', e.target);
+})
+
+navLinks.addEventListener('click', function(e){
+    // console.log('LINK');
     this.style.backgroundColor = randomColor();
 })
 
-document.querySelector('.nav__links').addEventListener('click', e => {
-    // console.log('LINK');
-})
-
-document.querySelector('.nav').addEventListener('click', e => {
+document.querySelector('.nav').addEventListener('click', function(e){
+    this.style.backgroundColor = randomColor();
     // console.log('LINK');
 })
