@@ -103,15 +103,19 @@ const navLinks = document.querySelector('.nav__links');
 
 featureLink.addEventListener('click', function(e){
     this.style.backgroundColor = randomColor();
-    console.log('LINK', e.target);
+    console.log('LINK', e.target, e.currentTarget);
+
+    // Stopping the event propagation
+    e.stopPropagation();
 })
 
 navLinks.addEventListener('click', function(e){
-    // console.log('LINK');
     this.style.backgroundColor = randomColor();
+    console.log('CONTAINER', e.target, e.currentTarget);
+
 })
 
 document.querySelector('.nav').addEventListener('click', function(e){
     this.style.backgroundColor = randomColor();
-    // console.log('LINK');
+    console.log('NAV', e.target, e.currentTarget);
 })
