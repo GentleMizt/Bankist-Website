@@ -1,12 +1,14 @@
 'use strict';
-
-///////////////////////////////////////
-// Modal window
+/// SELECTING ELEMENTS //
 
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+// FUNCTIONS //
 
 const openModal = function (e) {
   e.preventDefault();
@@ -30,24 +32,20 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-/// SELECTING ELEMENTS //
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
 btnScrollTo.addEventListener('click', e => {
-  const s1coords = section1.getBoundingClientRect();
-//   console.log(s1coords);
-//   console.log(e.target.getBoundingClientRect());
-//   console.log(
-//     'Current Scroll (X/Y) position:',
-//     window.pageXOffset,
-//     pageYOffset
-//   );
-//   console.log(
-//     'Height/Width Viewport',
-//     document.documentElement.clientHeight,
-//     document.documentElement.clientWidth
-//   );
+  //   const s1coords = section1.getBoundingClientRect();
+  //   console.log(s1coords);
+  //   console.log(e.target.getBoundingClientRect());
+  //   console.log(
+  //     'Current Scroll (X/Y) position:',
+  //     window.pageXOffset,
+  //     pageYOffset
+  //   );
+  //   console.log(
+  //     'Height/Width Viewport',
+  //     document.documentElement.clientHeight,
+  //     document.documentElement.clientWidth
+  //   );
 
   // Scrolling
   //   window.scrollTo(
