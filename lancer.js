@@ -96,28 +96,31 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 const randomInt = (min, max) =>
   Math.floor(Math.random() * (max - min + 1) + min);
 
-const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
 
 const featureLink = document.querySelector('.nav__link');
 const navLinks = document.querySelector('.nav__links');
 
-featureLink.addEventListener('click', function(e){
-    this.style.backgroundColor = randomColor();
-    console.log('LINK', e.target, e.currentTarget);
+featureLink.addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('LINK', e.target, e.currentTarget);
 
-    // Stopping the event propagation
-    // e.stopPropagation();
+  // Stopping the event propagation
+  // e.stopPropagation();
+});
 
+navLinks.addEventListener('click', function (e) {
+  this.style.backgroundColor = randomColor();
+  console.log('CONTAINER', e.target, e.currentTarget);
+});
 
-})
-
-navLinks.addEventListener('click', function(e){
-    this.style.backgroundColor = randomColor();
-    console.log('CONTAINER', e.target, e.currentTarget);
-
-})
-
-document.querySelector('.nav').addEventListener('click', function(e){
+// Passing in true as a third parameter in the addEventListener method enables it to handle events in the capturing phase instead of the bubbling phase.
+document.querySelector('.nav').addEventListener(
+  'click',
+  function (e) {
     this.style.backgroundColor = randomColor();
     console.log('NAV', e.target, e.currentTarget);
-}, true)
+  },
+  true
+);
