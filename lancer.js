@@ -30,25 +30,24 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-/// SELECTING ELEMENTS ///
-
+/// SELECTING ELEMENTS //
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
 btnScrollTo.addEventListener('click', e => {
   const s1coords = section1.getBoundingClientRect();
-  console.log(s1coords);
-  console.log(e.target.getBoundingClientRect());
-  console.log(
-    'Current Scroll (X/Y) position:',
-    window.pageXOffset,
-    pageYOffset
-  );
-  console.log(
-    'Height/Width Viewport',
-    document.documentElement.clientHeight,
-    document.documentElement.clientWidth
-  );
+//   console.log(s1coords);
+//   console.log(e.target.getBoundingClientRect());
+//   console.log(
+//     'Current Scroll (X/Y) position:',
+//     window.pageXOffset,
+//     pageYOffset
+//   );
+//   console.log(
+//     'Height/Width Viewport',
+//     document.documentElement.clientHeight,
+//     document.documentElement.clientWidth
+//   );
 
   // Scrolling
   //   window.scrollTo(
@@ -69,3 +68,4 @@ btnScrollTo.addEventListener('click', e => {
   });
 });
 
+// PAGE NAVIGATION
