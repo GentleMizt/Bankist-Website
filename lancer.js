@@ -77,7 +77,7 @@ const alertH1 = e => {
 };
 
 // FIRST WAY OF HANDLING AN EVENTS
-h1.addEventListener('mouseenter', alertH1);  
+h1.addEventListener('mouseenter', alertH1);
 
 setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 
@@ -86,8 +86,14 @@ setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
 //   alert('onmouseenter: Great! You are reading the heading :D');
 // };
 
-
 // THIRD WAY OF HANDLING EVENTS
 // - This method actually involves you handling the event in the HTML markup by passing it as an attribute to the HTML element.
 // - This method was used in the early days and should not be used in mordern day JavaScript Coding.
-//  <h1 onclick="alert('HTML alert')"></h1> 
+//  <h1 onclick="alert('HTML alert')"></h1>
+
+/// EVENT PROPAGATION: BUBBLING AND CAPTURING ///
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () => `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
