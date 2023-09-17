@@ -70,17 +70,35 @@ btnScrollTo.addEventListener('click', e => {
 
 // PAGE NAVIGATION
 
-document.querySelectorAll('.nav__link').forEach((link, i) => {
-  link.addEventListener('click', function (e) {
+// WITHOUT EVENT DELEGATION
+// document.querySelectorAll('.nav__link').forEach((link, i) => {
+//   link.addEventListener('click', function (e) {
+//     e.preventDefault();
+//     console.log(`LINK-${i + 1}`);
+
+//     // Implementing the smooth scrolling
+//     const id = this.getAttribute('href');
+//     console.log(id);
+
+//     document.querySelector(id).scrollIntoView({
+//       behavior: 'smooth',
+//     });
+//   });
+// });
+
+
+// WITH EVENT DELEGATION
+// - Add the event listener to the common parent element
+// - Determine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click', function(e){
     e.preventDefault();
-    console.log(`LINK-${i + 1}`);
 
-    // Implementing the smooth scrolling
-    const id = this.getAttribute('href');
-    console.log(id);
-
-    document.querySelector(id).scrollIntoView({
-      behavior: 'smooth',
-    });
-  });
-});
+    // Matching strategy
+    if (e.target.classList.contains('nav__link')) {
+        const id = e.target.getAttribute('href');
+        document.querySelector(id).scrollIntoView({
+            behavior: 'smooth',
+        })
+    }
+})
