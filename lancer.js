@@ -106,7 +106,9 @@ featureLink.addEventListener('click', function(e){
     console.log('LINK', e.target, e.currentTarget);
 
     // Stopping the event propagation
-    e.stopPropagation();
+    // e.stopPropagation();
+
+
 })
 
 navLinks.addEventListener('click', function(e){
@@ -118,4 +120,4 @@ navLinks.addEventListener('click', function(e){
 document.querySelector('.nav').addEventListener('click', function(e){
     this.style.backgroundColor = randomColor();
     console.log('NAV', e.target, e.currentTarget);
-})
+}, true)
