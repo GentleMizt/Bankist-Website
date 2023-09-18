@@ -103,35 +103,15 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 });
 
 
-/// DOM TRAVERSING ///
+// Tabbed Component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('operations__content');
 
-const h1 = document.querySelector('h1');
+tabsContainer.addEventListener('click', (e)=>{
+  e.preventDefault();
 
-// going down the DOM: child
-console.log(h1.querySelectorAll('.highlight'));
-console.log(h1.childNodes); 
-console.log(h1.children); // Works only for direct children
-h1.firstElementChild.style.color = 'white';
-h1.lastElementChild.style.color = 'orangered';
-
-// going up the DOM: Parents
-console.log(h1.parentNode);
-console.log(h1.parentElement);
-
-h1.closest('.header').style.background = 'var(--gradient-secondary)';
-h1.closest('h1').style.background = 'var(--gradient-primary)';
-
-// going sideways: Siblings
-// - It is important to note that we can only access direct siblings i.e either the previous or the next one.
-console.log(h1.previousElementSibling);
-console.log(h1.nextElementSibling);
-console.log(h1.previousSibling);
-console.log(h1.nextSibling);
-
-// If we need all the siblings, a trick that can be used is to move up to the parent element, then read all the children from there.
-console.log(h1.parentElement.children);
-[...h1.parentElement.children].forEach((el)=>{
-  if (el !== h1) {
-    el.style.transform = 'scale(0.5)'
-  }
+  // Getting the Matching strategy 
+  const clicked = e.target;
+  console.log(clicked);
 })
