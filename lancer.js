@@ -10,7 +10,7 @@ const section1 = document.querySelector('#section--1');
 const nav = document.querySelector('nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');
+const tabsContent = document.querySelectorAll('.operations__content');  
 
 ///////////////////////////// FUNCTIONS /////////////////////////////
 
@@ -26,18 +26,19 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-const handleHover = (e, opacity) => {
+const handleHover = function(e, opacity){
+  console.log(this);
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
 
-    siblings.forEach(el => {
+    siblings.forEach((el => {
       if (el !== link) el.style.opacity = opacity;
-    });
+    }))
     logo.style.opacity = opacity;
   }
-};
+}
 
 //////////////// APPLICATIONS //////////////////
 
@@ -95,11 +96,8 @@ tabsContainer.addEventListener('click', e => {
     .classList.add('operations__content--active');
 });
 
-//   MENU FADE ANIMATION
-nav.addEventListener('mouseover', function (e) {
-  handleHover(e, 0.5);
-});
 
-nav.addEventListener('mouseout', function (e) {
-  handleHover(e, 1);
-});
+//   MENU FADE ANIMATION
+nav.addEventListener('mouseover',handleHover.bind(0.5));
+
+nav.addEventListener('mouseout',handleHover.bind(1));
