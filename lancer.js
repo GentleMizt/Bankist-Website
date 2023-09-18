@@ -112,6 +112,10 @@ tabsContainer.addEventListener('click', (e)=>{
   e.preventDefault();
 
   // Getting the Matching strategy 
-  const clicked = e.target;
+  const clicked = e.target.closest('.operations__tab');
   console.log(clicked);
+
+  // Guard Clause
+  if (!clicked) return;
+  clicked.classList.add('operations__tab--active');
 })
