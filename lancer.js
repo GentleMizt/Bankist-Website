@@ -53,6 +53,14 @@ const stickyNav = (entries) =>{
 const revealSection = (entries, observer) => {
   const [entry] = entries;;
   console.log(entry);
+  
+  // Guard Clause
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+
+  // UnObserving the Sections
+  observer.unobserve(entry.target)
 }
 
 //////////////// APPLICATIONS //////////////////
