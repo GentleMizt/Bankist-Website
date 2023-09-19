@@ -42,6 +42,11 @@ const handleHover = function(e){
 const stickyNav = (entries) =>{
   const [entry] = entries;
   console.log(entry);
+  if (!entry.isIntersecting ) {
+    nav.classList.add('sticky');
+  } else {
+    nav.classList.remove('sticky');
+  }
 }
 
 //////////////// APPLICATIONS //////////////////
@@ -137,9 +142,12 @@ const initialCoords = section1.getBoundingClientRect();
 // observer.observe(section1);
 
 const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect();
+console.log(navHeight);
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
-  threshold: 0
+  threshold: 0,
+  rootMargin: `-${navHeight.height}px`
 });
 headerObserver.observe(header);
