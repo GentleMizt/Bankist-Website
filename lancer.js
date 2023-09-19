@@ -41,7 +41,6 @@ const handleHover = function(e){
 
 const stickyNav = (entries) =>{
   const [entry] = entries;
-  console.log(entry);
   if (!entry.isIntersecting ) {
     nav.classList.add('sticky');
   } else {
@@ -143,7 +142,6 @@ const initialCoords = section1.getBoundingClientRect();
 
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect();
-console.log(navHeight);
 
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
