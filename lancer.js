@@ -10,7 +10,7 @@ const section1 = document.querySelector('#section--1');
 const nav = document.querySelector('nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
-const tabsContent = document.querySelectorAll('.operations__content');  
+const tabsContent = document.querySelectorAll('.operations__content');
 
 ///////////////////////////// FUNCTIONS /////////////////////////////
 
@@ -26,42 +26,42 @@ const closeModal = function () {
   overlay.classList.add('hidden');
 };
 
-const handleHover = function(e){
+const handleHover = function (e) {
   if (e.target.classList.contains('nav__link')) {
     const link = e.target;
     const siblings = link.closest('.nav').querySelectorAll('.nav__link');
     const logo = link.closest('.nav').querySelector('img');
 
-    siblings.forEach((el => {
+    siblings.forEach(el => {
       if (el !== link) el.style.opacity = this;
-    }))
+    });
     logo.style.opacity = this;
   }
-}
+};
 
 // OBSERVER FUNCTIONS //
 
-const stickyNav = (entries) =>{
+const stickyNav = entries => {
   const [entry] = entries;
-  if (!entry.isIntersecting ) {
+  if (!entry.isIntersecting) {
     nav.classList.add('sticky');
   } else {
     nav.classList.remove('sticky');
   }
-}
+};
 
 const revealSection = (entries, observer) => {
-  const [entry] = entries;;
+  const [entry] = entries;
   console.log(entry);
-  
+
   // Guard Clause
   if (!entry.isIntersecting) return;
 
   entry.target.classList.remove('section--hidden');
 
   // UnObserving the Sections
-  observer.unobserve(entry.target)
-}
+  observer.unobserve(entry.target);
+};
 
 //////////////// APPLICATIONS //////////////////
 
@@ -119,11 +119,9 @@ tabsContainer.addEventListener('click', e => {
     .classList.add('operations__content--active');
 });
 
-
 //   MENU FADE ANIMATION
-nav.addEventListener('mouseover',handleHover.bind(0.5));
-nav.addEventListener('mouseout',handleHover.bind(1));
-
+nav.addEventListener('mouseover', handleHover.bind(0.5));
+nav.addEventListener('mouseout', handleHover.bind(1));
 
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect();
@@ -131,18 +129,18 @@ const navHeight = nav.getBoundingClientRect();
 const headerObserver = new IntersectionObserver(stickyNav, {
   root: null,
   threshold: 0,
-  rootMargin: `-${navHeight.height}px`
+  rootMargin: `-${navHeight.height}px`,
 });
 headerObserver.observe(header);
 
 // REVEALING SECTIONS
-const allSections = document.querySelectorAll('.section')
+const allSections = document.querySelectorAll('.section');
 const sectionObserver = new IntersectionObserver(revealSection, {
   root: null,
-  threshold: 0.15
-})
+  threshold: 0.15,
+});
 
-allSections.forEach((section) => {
+allSections.forEach(section => {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden')
-})
+  section.classList.add('section--hidden');
+});
