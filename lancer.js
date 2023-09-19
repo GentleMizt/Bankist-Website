@@ -39,6 +39,8 @@ const handleHover = function(e){
   }
 }
 
+// OBSERVER FUNCTIONS //
+
 const stickyNav = (entries) =>{
   const [entry] = entries;
   if (!entry.isIntersecting ) {
@@ -46,6 +48,11 @@ const stickyNav = (entries) =>{
   } else {
     nav.classList.remove('sticky');
   }
+}
+
+const revealSection = (entries, observer) => {
+  const [entry] = entries;;
+  console.log(entry);
 }
 
 //////////////// APPLICATIONS //////////////////
@@ -149,3 +156,15 @@ const headerObserver = new IntersectionObserver(stickyNav, {
   rootMargin: `-${navHeight.height}px`
 });
 headerObserver.observe(header);
+
+// REVEALING SECTIONS
+const allSections = document.querySelectorAll('.section')
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15
+})
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden')
+})
