@@ -39,6 +39,11 @@ const handleHover = function(e){
   }
 }
 
+const stickyNav = (entries) =>{
+  const [entry] = entries;
+  console.log(entry);
+}
+
 //////////////// APPLICATIONS //////////////////
 
 btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
@@ -103,14 +108,38 @@ nav.addEventListener('mouseout',handleHover.bind(1));
 
 // STICKY NAVIGATION 
 const initialCoords = section1.getBoundingClientRect();
-console.log(initialCoords);
+// console.log(initialCoords);
 
-window.addEventListener('scroll', ()=>{
-  console.log(window.scrollY);
+// Using the scroll event for performance based on scroll position is bad and not efficient because the event fires all the time no matter how small the change is in the scroll.
+// window.addEventListener('scroll', ()=>{
+//   console.log(window.scrollY);
 
-  if (window.scrollY > initialCoords.top) {
-    nav.classList.add('sticky')
-  } else {
-    nav.classList.remove('sticky');
-  }
-})
+//   if (window.scrollY > initialCoords.top) {
+//     nav.classList.add('sticky')
+//   } else {
+//     nav.classList.remove('sticky');
+//   }
+// })
+
+// USING THE INTERSECTION OBSERVER API, A BETTER TOOL 
+// STICKY NAVIGATION (INTERSECTION OBSERVER API)
+
+// const observerCallBack = (entries, observer) => {
+//   entries.forEach((entry)=> console.log(entry));
+// }
+// const observerOptions = {
+//   root:  null,
+//   threshold: [0, 0.2],
+
+// }
+
+// const observer = new IntersectionObserver(observerCallBack, observerOptions);
+// observer.observe(section1);
+
+const header = document.querySelector('.header');
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0
+});
+headerObserver.observe(header);
