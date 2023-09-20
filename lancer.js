@@ -52,7 +52,6 @@ const stickyNav = entries => {
 
 const revealSection = (entries, observer) => {
   const [entry] = entries;
-  console.log(entry);
 
   // Guard Clause
   if (!entry.isIntersecting) return;
@@ -144,3 +143,19 @@ allSections.forEach(section => {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+
+// LAZY LOADING IMAGES
+const imgTarget = document.querySelectorAll('img[data-src]');
+console.log(imgTarget);
+
+const loadImg = (entries, observe) => {
+  const [entry] = entries;
+  console.log(entry);
+}
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+});
+
+imgTarget.forEach((img) => imgObserver.observe(img));
