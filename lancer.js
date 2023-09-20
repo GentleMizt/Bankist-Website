@@ -144,7 +144,6 @@ allSections.forEach(section => {
   section.classList.add('section--hidden');
 });
 
-
 // LAZY LOADING IMAGES
 const imgTarget = document.querySelectorAll('img[data-src]');
 console.log(imgTarget);
@@ -158,12 +157,12 @@ const loadImg = (entries, observer) => {
   // Replacing the src attribute with the data-src
   entry.target.src = entry.target.dataset.src;
   entry.target.addEventListener('load', () => {
-    entry.target.classList.remove('lazy-img')
-  })
-}
+    entry.target.classList.remove('lazy-img');
+  });
+};
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
   threshold: 0,
 });
 
-imgTarget.forEach((img) => imgObserver.observe(img));
+imgTarget.forEach(img => imgObserver.observe(img));
