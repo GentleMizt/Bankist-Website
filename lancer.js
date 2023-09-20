@@ -149,9 +149,17 @@ allSections.forEach(section => {
 const imgTarget = document.querySelectorAll('img[data-src]');
 console.log(imgTarget);
 
-const loadImg = (entries, observe) => {
+const loadImg = (entries, observer) => {
   const [entry] = entries;
   console.log(entry);
+
+  if (!entry.isIntersecting) return;
+
+  // Replacing the src attribute with the data-src
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img')
+  })
 }
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
