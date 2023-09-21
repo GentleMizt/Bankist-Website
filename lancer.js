@@ -150,7 +150,6 @@ console.log(imgTarget);
 
 const loadImg = (entries, observer) => {
   const [entry] = entries;
-  console.log(entry);
 
   if (!entry.isIntersecting) return;
 
@@ -159,10 +158,16 @@ const loadImg = (entries, observer) => {
   entry.target.addEventListener('load', () => {
     entry.target.classList.remove('lazy-img');
   });
+
+  observer.unobserve(entry.target)
 };
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
   threshold: 0,
+  rootMargin: '200px'
 });
 
 imgTarget.forEach(img => imgObserver.observe(img));
+
+
+// IMPLEMENTING THE SLIDER COMPONENT //
