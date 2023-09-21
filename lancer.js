@@ -62,7 +62,19 @@ const revealSection = (entries, observer) => {
   observer.unobserve(entry.target);
 };
 
+const loadImg = (entries, observer) => {
+  const [entry] = entries;
 
+  if (!entry.isIntersecting) return;
+
+  // Replacing the src attribute with the data-src
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', () => {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
 
 //////////////// APPLICATIONS //////////////////
 
@@ -152,10 +164,9 @@ const imgTarget = document.querySelectorAll('img[data-src]');
 const imgObserver = new IntersectionObserver(loadImg, {
   root: null,
   threshold: 0,
-  rootMargin: '200px'
+  rootMargin: '200px',
 });
 
 imgTarget.forEach(img => imgObserver.observe(img));
-
 
 // IMPLEMENTING THE SLIDER COMPONENT //
