@@ -200,8 +200,6 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTarget.forEach(img => imgObserver.observe(img));
 
 // IMPLEMENTING THE SLIDER COMPONENT //
-
-
 // slider.style.transform = 'scale(.4) translateX(-1100px)';
 // slider.style.overflow = 'visible'
 
