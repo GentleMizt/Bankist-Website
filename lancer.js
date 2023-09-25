@@ -43,6 +43,32 @@ const handleHover = function (e) {
   }
 };
 
+const goToSlide = function (slide) {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
+};
+
+const nextSlide = () => {
+  if (curSlide === maxSlide) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+
+  goToSlide(curSlide);
+};
+
+const prevSlide = () => {
+  if (curSlide === 0) {
+    curSlide = maxSlide;
+  } else {
+    curSlide--;
+  }
+
+  goToSlide(curSlide);
+};
+
 // OBSERVER FUNCTIONS //
 
 const stickyNav = entries => {
@@ -181,32 +207,6 @@ imgTarget.forEach(img => imgObserver.observe(img));
 
 let curSlide = 0;
 const maxSlide = slides.length - 1;
-
-const goToSlide = function (slide) {
-  slides.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - slide)}%)`;
-  });
-};
-
-const nextSlide = () => {
-  if (curSlide === maxSlide) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
-
-  goToSlide(curSlide);
-};
-
-const prevSlide = () => {
-  if (curSlide === 0) {
-    curSlide = maxSlide;
-  } else {
-    curSlide--;
-  }
-
-  goToSlide(curSlide);
-};
 
 // putting all the slides side by side
 goToSlide(0);
