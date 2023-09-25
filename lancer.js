@@ -155,7 +155,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(section => {
   sectionObserver.observe(section);
-  section.classList.add('section--hidden');
+  // section.classList.add('section--hidden');
 });
 
 // LAZY LOADING IMAGES
@@ -172,5 +172,15 @@ imgTarget.forEach(img => imgObserver.observe(img));
 // IMPLEMENTING THE SLIDER COMPONENT //
 const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+
+slider.style.transform = 'scale(.4) translateX(-1100px)';
+slider.style.overflow = 'visible'
 
 // putting all the slides side by side
+slides.forEach((s, i) => {
+  s.style.transform = `translateX(${100 * i}%)`
+})
+
+
