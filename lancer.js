@@ -175,6 +175,9 @@ const slides = document.querySelectorAll('.slide');
 const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 
+// slider.style.transform = 'scale(.4) translateX(-1100px)';
+// slider.style.overflow = 'visible'
+
 let curSlide = 0;
 const maxSlide = slides.length - 1;
 
@@ -200,12 +203,10 @@ const prevSlide = () => {
   } else {
     curSlide--;
   }
-  
+
   goToSlide(curSlide);
 }
 
-slider.style.transform = 'scale(.4) translateX(-1100px)';
-slider.style.overflow = 'visible'
 
 // putting all the slides side by side
 goToSlide(0);
