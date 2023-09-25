@@ -175,6 +175,8 @@ const slides = document.querySelectorAll('.slide');
 const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 
+let curSlide = 0;
+
 slider.style.transform = 'scale(.4) translateX(-1100px)';
 slider.style.overflow = 'visible'
 
@@ -182,5 +184,14 @@ slider.style.overflow = 'visible'
 slides.forEach((s, i) => {
   s.style.transform = `translateX(${100 * i}%)`
 })
+// curSlide = 0: 0%, 100%, 200%, 300% ...%
 
+// Moving to the next slide
+btnLeft.addEventListener('click', function(e){
+  curSlide++;
 
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - curSlide)}%)`
+  })
+  // curSlide = 1: -100%, 0%, 200%, 300%, ...%
+})
