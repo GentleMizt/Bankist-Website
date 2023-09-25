@@ -170,3 +170,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTarget.forEach(img => imgObserver.observe(img));
 
 // IMPLEMENTING THE SLIDER COMPONENT //
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+
+// putting all the slides side by side
