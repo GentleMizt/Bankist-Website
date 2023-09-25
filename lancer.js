@@ -11,6 +11,10 @@ const nav = document.querySelector('nav');
 const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
+const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
 
 ///////////////////////////// FUNCTIONS /////////////////////////////
 
@@ -170,10 +174,7 @@ const imgObserver = new IntersectionObserver(loadImg, {
 imgTarget.forEach(img => imgObserver.observe(img));
 
 // IMPLEMENTING THE SLIDER COMPONENT //
-const slider = document.querySelector('.slider');
-const slides = document.querySelectorAll('.slide');
-const btnLeft = document.querySelector('.slider__btn--left');
-const btnRight = document.querySelector('.slider__btn--right');
+
 
 // slider.style.transform = 'scale(.4) translateX(-1100px)';
 // slider.style.overflow = 'visible'
@@ -181,21 +182,21 @@ const btnRight = document.querySelector('.slider__btn--right');
 let curSlide = 0;
 const maxSlide = slides.length - 1;
 
-const goToSlide = function(slide){
+const goToSlide = function (slide) {
   slides.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - slide)}%)`
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
   });
-}
+};
 
 const nextSlide = () => {
-  if (curSlide === maxSlide){
+  if (curSlide === maxSlide) {
     curSlide = 0;
   } else {
-    curSlide++
+    curSlide++;
   }
 
   goToSlide(curSlide);
-}
+};
 
 const prevSlide = () => {
   if (curSlide === 0) {
@@ -205,8 +206,7 @@ const prevSlide = () => {
   }
 
   goToSlide(curSlide);
-}
-
+};
 
 // putting all the slides side by side
 goToSlide(0);
@@ -215,4 +215,4 @@ goToSlide(0);
 btnRight.addEventListener('click', nextSlide);
 
 // Moving to the previous slide
-btnLeft.addEventListener('click', prevSlide)
+btnLeft.addEventListener('click', prevSlide);
