@@ -214,3 +214,11 @@ btnRight.addEventListener('click', nextSlide);
 
 // Moving to the previous slide
 btnLeft.addEventListener('click', prevSlide);
+
+// Enabling the slider functionality with the left and arrow keys
+document.addEventListener('keydown', (e) =>{
+  console.log(e);
+  // if (e.key === 'ArrowLeft') prevSlide();
+  e.key === 'ArrowLeft' && prevSlide()
+  e.key === 'ArrowRight' && nextSlide()
+})
