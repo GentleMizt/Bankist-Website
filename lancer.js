@@ -15,6 +15,8 @@ const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
 const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+
 
 ///////////////////////////// FUNCTIONS /////////////////////////////
 
@@ -42,6 +44,11 @@ const handleHover = function (e) {
     logo.style.opacity = this;
   }
 };
+const createDots = () => {
+  slides.forEach((_, i) => {
+    dotContainer.insertAdjacentElement('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
+  })
+}
 
 const goToSlide = function (slide) {
   slides.forEach((s, i) => {
@@ -217,8 +224,9 @@ btnLeft.addEventListener('click', prevSlide);
 
 // Enabling the slider functionality with the left and arrow keys
 document.addEventListener('keydown', (e) =>{
-  console.log(e);
-  // if (e.key === 'ArrowLeft') prevSlide();
   e.key === 'ArrowLeft' && prevSlide()
   e.key === 'ArrowRight' && nextSlide()
 })
+
+// Implementing the slider functionality on pagination
+createDots();
