@@ -46,7 +46,7 @@ const handleHover = function (e) {
 
 const createDots = () => {
   slides.forEach((_, i) => {
-    dotContainer.insertAdjacentElement(
+    dotContainer.insertAdjacentHTML(
       'beforeend',
       `<button class="dots__dot" data-slide="${i}"></button>`
     );
