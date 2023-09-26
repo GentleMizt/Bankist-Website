@@ -56,7 +56,8 @@ const createDots = () => {
 // createDots();
 
 const actvateDot = (slide) => {
-  document.querySelectorAll('.dots__dot')
+  document.querySelectorAll('.dots__dot').forEach((d => d.classList.remove('dots__dot--active')))
+  
 }
 
 const goToSlide = function (slide) {
