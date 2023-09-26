@@ -53,12 +53,18 @@ const createDots = () => {
   });
 };
 
-// createDots();
 
-const actvateDot = (slide) => {
-  document.querySelectorAll('.dots__dot').forEach((d => d.classList.remove('dots__dot--active')))
-  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
-}
+createDots();
+
+const activateDot = function (slide) {
+  document
+    .querySelectorAll('.dots__dot')
+    .forEach(d => d.classList.remove('dots__dot--active'));
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
+};
+activateDot(0)
 
 const goToSlide = function (slide) {
   slides.forEach((s, i) => {
@@ -74,7 +80,7 @@ const nextSlide = () => {
   }
 
   goToSlide(curSlide);
-  actvateDot(curSlide)
+  activateDot(curSlide);
 };
 
 const prevSlide = () => {
@@ -85,7 +91,7 @@ const prevSlide = () => {
   }
 
   goToSlide(curSlide);
-  actvateDot(curSlide)
+  activateDot(curSlide);
 };
 
 // OBSERVER FUNCTIONS //
@@ -225,9 +231,8 @@ imgTarget.forEach(img => imgObserver.observe(img));
 let curSlide = 0;
 const maxSlide = slides.length - 1;
 
-// putting all the slides side by side
+// putting all the slides side by side and activating the DOT functionality
 goToSlide(0);
-actvateDot(0);
 
 // Moving to the next slide
 btnRight.addEventListener('click', nextSlide);
@@ -242,12 +247,10 @@ document.addEventListener('keydown', e => {
 });
 
 // Implementing the slider functionality on pagination
-createDots();
-
-dotContainer.addEventListener('click', (e)=>{
-  if (e.target.classList.contains('dots__dot')){
-    const {slide} = e.target.dataset
+dotContainer.addEventListener('click', e => {
+  if (e.target.classList.contains('dots__dot')) {
+    const { slide } = e.target.dataset;
     goToSlide(slide);
-    actvateDot(slide)
+    activateDot(slide);
   }
-})
+});
