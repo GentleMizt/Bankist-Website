@@ -57,7 +57,7 @@ const createDots = () => {
 
 const actvateDot = (slide) => {
   document.querySelectorAll('.dots__dot').forEach((d => d.classList.remove('dots__dot--active')))
-  document.querySelector(`.dots__dot[data-slide="slide"]`).classList.add('dots__dot--active')
+  document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active')
 }
 
 const goToSlide = function (slide) {
@@ -74,6 +74,7 @@ const nextSlide = () => {
   }
 
   goToSlide(curSlide);
+  actvateDot(curSlide)
 };
 
 const prevSlide = () => {
@@ -84,6 +85,7 @@ const prevSlide = () => {
   }
 
   goToSlide(curSlide);
+  actvateDot(curSlide)
 };
 
 // OBSERVER FUNCTIONS //
@@ -225,6 +227,7 @@ const maxSlide = slides.length - 1;
 
 // putting all the slides side by side
 goToSlide(0);
+actvateDot(0);
 
 // Moving to the next slide
 btnRight.addEventListener('click', nextSlide);
@@ -245,5 +248,6 @@ dotContainer.addEventListener('click', (e)=>{
   if (e.target.classList.contains('dots__dot')){
     const {slide} = e.target.dataset
     goToSlide(slide);
+    actvateDot(slide)
   }
 })
