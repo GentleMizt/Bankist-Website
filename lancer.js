@@ -53,7 +53,11 @@ const createDots = () => {
   });
 };
 
-createDots();
+// createDots();
+
+const actvateDot = (slide) => {
+  document.querySelectorAll('.dots__dot')
+}
 
 const goToSlide = function (slide) {
   slides.forEach((s, i) => {
@@ -234,4 +238,11 @@ document.addEventListener('keydown', e => {
 });
 
 // Implementing the slider functionality on pagination
-// createDots();
+createDots();
+
+dotContainer.addEventListener('click', (e)=>{
+  if (e.target.classList.contains('dots__dot')){
+    const {slide} = e.target.dataset
+    goToSlide(slide);
+  }
+})
