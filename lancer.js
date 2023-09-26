@@ -17,7 +17,6 @@ const btnLeft = document.querySelector('.slider__btn--left');
 const btnRight = document.querySelector('.slider__btn--right');
 const dotContainer = document.querySelector('.dots');
 
-
 ///////////////////////////// FUNCTIONS /////////////////////////////
 
 // MODAL WINDOW //
@@ -44,11 +43,17 @@ const handleHover = function (e) {
     logo.style.opacity = this;
   }
 };
+
 const createDots = () => {
   slides.forEach((_, i) => {
-    dotContainer.insertAdjacentElement('beforeend', `<button class="dots__dot" data-slide="${i}"></button>`)
-  })
-}
+    dotContainer.insertAdjacentElement(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+
+createDots();
 
 const goToSlide = function (slide) {
   slides.forEach((s, i) => {
@@ -223,10 +228,10 @@ btnRight.addEventListener('click', nextSlide);
 btnLeft.addEventListener('click', prevSlide);
 
 // Enabling the slider functionality with the left and arrow keys
-document.addEventListener('keydown', (e) =>{
-  e.key === 'ArrowLeft' && prevSlide()
-  e.key === 'ArrowRight' && nextSlide()
-})
+document.addEventListener('keydown', e => {
+  e.key === 'ArrowLeft' && prevSlide();
+  e.key === 'ArrowRight' && nextSlide();
+});
 
 // Implementing the slider functionality on pagination
-createDots();
+// createDots();
