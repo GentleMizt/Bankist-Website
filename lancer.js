@@ -256,4 +256,4 @@ const sliderFxn = function () {
     }
   });
 };
-// sliderFxn();
+sliderFxn();
