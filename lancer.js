@@ -281,3 +281,5 @@ window.addEventListener('load', (e) => {
 //   e.returnValue = '';
 // })
 
+// EFFICENT SCRIPT LOADING
+// Async and Defer Attribute.
