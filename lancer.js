@@ -283,3 +283,5 @@ window.addEventListener('load', (e) => {
 
 // EFFICENT SCRIPT LOADING
 // Async and Defer Attribute.
+// The async and defer attribut have no pratical effect in the body.
+// Overall, using the defer attribute in the script tag (placed in the head tag) is the BEST OPTION.
