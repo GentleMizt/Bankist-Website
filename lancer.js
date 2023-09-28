@@ -272,8 +272,12 @@ window.addEventListener('load', (e) => {
 })
 
 // This event gets fired on the window object, it is created immediately before the user is about to leave a page
-window.addEventListener('beforeunload', e => {
-  e.preventDefault();
-  console.log(e);
-  e.returnValue = '';
-})
+
+// THIS FEATURE SHOULD NOT BE ABUSED OR USED ANYHOW, IT SHOULD ONLY BE USED AS A SAFETY MEASURE TO PREVENT SOME SORT OF DATA LOSS.
+
+// window.addEventListener('beforeunload', e => {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// })
+
