@@ -261,7 +261,19 @@ sliderFxn();
 
 
 // LIFECYCLE DOM EVENTS
+// The event gets fired when the HTML Markup as well as the script has loaded.
 document.addEventListener('DOMContentLoaded', (e) =>{
   console.log('HTML PARSED AND DOM TREE BUILT', e);
 })
 
+// This event gets fired when everything on from the HTML markup to the external css libraries to scripts are all loaded. It is fired on the window object
+window.addEventListener('load', (e) => {
+  console.log('Page fully loaded', e);
+})
+
+// This event gets fired on the window object, it is created immediately before the user is about to leave a page
+window.addEventListener('beforeunload', e => {
+  e.preventDefault();
+  console.log(e);
+  e.returnValue = '';
+})
