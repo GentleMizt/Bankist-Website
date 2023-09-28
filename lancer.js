@@ -285,3 +285,4 @@ window.addEventListener('load', (e) => {
 // Async and Defer Attribute.
 // The async and defer attribut have no pratical effect in the body.
 // Overall, using the defer attribute in the script tag (placed in the head tag) is the BEST OPTION.
+// The async attribute should be used for 3rd party scripts where order doesn't matter.
