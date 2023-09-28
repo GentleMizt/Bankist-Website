@@ -257,3 +257,11 @@ const sliderFxn = function () {
   });
 };
 sliderFxn();
+
+
+
+// LIFECYCLE DOM EVENTS
+document.addEventListener('DOMContentLoaded', (e) =>{
+  console.log('HTML PARSED AND DOM TREE BUILT', e);
+})
+
